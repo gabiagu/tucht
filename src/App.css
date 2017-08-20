@@ -9,16 +9,63 @@
 
 .App-header {
     background-color: #222;
-    height: 150px;
+    height: auto;
     padding: 20px;
     color: white;
 }
 
-.App-intro {
-    font-size: large;
+.App-content {
+    width: 700px;
+    margin: 24px auto;
 }
 
-@keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.App-content :last-child {
+    border-top: none;
 }
+
+.todoInput,
+.todoView {
+    padding: 10px;
+    margin: 0 auto;
+    font-size: 36px;
+    line-height: 40px;
+    width: 90%;
+    border-bottom: 1px solid #ccc;
+}
+
+.todoInput {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+}
+
+.todoView {
+    font-family: Georgia, serif;
+    font-style: italic;
+    text-align: left;
+}
+
+::placeholder {
+    font-size: 16px;
+    line-height: 40px;
+    color: #ccc;
+    font-style: italic;
+}
+
+.todoInput:focus {
+    background: #FFF8E1;
+}
+
+.todoInput-secondary,
+.todoView-secondary {
+    font-size: 24px;
+    line-height: 32px;
+}
+.todoInput-tertiary,
+.todoView-tertiary {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+
+

@@ -8,10 +8,16 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="App-header">
-                    <h2>Welcome to React</h2>
+                    <h2>6 things</h2>
                 </div>
-                <div className="App-intro">
-                    <Input />
+
+                <div className="App-content">
+                    <Input type="primary" placeholder="the most important thing" />
+                    <Input type="secondary" placeholder="something important" />
+                    <Input type="secondary" placeholder="something important" />
+                    <Input type="tertiary" placeholder="some small thing" />
+                    <Input type="tertiary" placeholder="some small thing" />
+                    <Input type="tertiary" placeholder="some small thing" />
                 </div>
             </div>
         );

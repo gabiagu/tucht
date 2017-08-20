@@ -8,41 +8,83 @@ class Input extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            editing: false,
-            editText: 'do stuff'
+            editing: true,
+            value: ''
         }
     }
 
 
-    handleKeyDown(event) {
-        if (event.which === ESCAPE_KEY) {
-            this.setState({editText: this.props.todo.title});
-            this.props.onCancel(event);
-        } else if (event.which === ENTER_KEY) {
-            this.handleSubmit(event);
+    handleSubmit(e) {
+
+        e.preventDefault();
+
+        console.log(e)
+
+        this.setState({editing: false});
+
+        console.log(this.state.value)
+
+        this.renderThing();
+
+    }
+
+    handleKeyDown(e) {
+        if (e.which === ESCAPE_KEY) {
+            this.setState({value: this.props.todo.title});
+            this.props.onCancel(e);
+        } else if (e.which === ENTER_KEY) {
+            this.handleSubmit(e);
         }
     }
 
-    handleChange(event) {
-        if (this.props.editing) {
-            this.setState({editText: event.target.value});
+    handleChange(e) {
+
+        if (this.state.editing) {
+            this.setState({value: e.target.value});
         }
+
+    }
+
+    swapState() {
+
+        if (this.state.editing) {
+            this.setState({editing: false});
+        } else {
+            this.setState({editing: true});
+        }
+
     }
 
     renderThing() {
 
+        const editClassName = 'todoInput todoInput-'+this.props.type;
+        const viewClassName = 'todoView todoView-'+this.props.type;
+
         if ( this.state.editing ) {
             return (
                 <input
-                    className="input" 
-                    defaultValue="foobar"
+                    className={editClassName}
+                    placeholder={this.props.placeholder}
+                    onChange={this.handleChange.bind(this) }
+                    onKeyDown={this.handleKeyDown.bind(this) }
+                    value={this.state.value}
                 />
             )
         } else {
             return (
-                <div>
-                    
+                <div
+                    className={viewClassName}
+                >
+
+                    <span 
+                        className='todoView-text'
+                        onDoubleClick={this.swapState.bind(this)}
+                    >
+                        {this.state.value}
+                    </span>
+
                 </div>
             )
         }
@@ -51,11 +93,12 @@ class Input extends Component {
 
     
     render() {
+        
+        // renderThing()
+
         return (
-            <div>
-                foobar
-            </div>
-        );
+             this.renderThing()
+        )
     }
 }
 
