@@ -11,31 +11,36 @@ class Input extends Component {
 
         this.state = {
             editing: true,
-            value: ''
+            value: '',
+            checked: false,
         }
     }
 
-
-    handleSubmit(e) {
-
+    handleInputSubmit(e) {
         e.preventDefault();
-
-        console.log(e)
-
-        this.setState({editing: false});
-
-        console.log(this.state.value)
-
-        this.renderThing();
-
+        if (this.state.value === '') {
+            this.setState({value: ''});
+        } else {
+            this.setState({editing: false});
+            this.props.handleSubmit(this.state.value, this.state.checked, this.props.index);
+        }
     }
 
     handleKeyDown(e) {
+        
         if (e.which === ESCAPE_KEY) {
-            this.setState({value: this.props.todo.title});
-            this.props.onCancel(e);
+            if (( this.props.text === '' )) {
+                this.setState({value: ''});
+            } else {
+                this.setState({editing: false});
+            }
         } else if (e.which === ENTER_KEY) {
-            this.handleSubmit(e);
+            if (this.state.value === '') {
+                return false;
+            } else {
+                console.log('ENTER pressed '+e.target.value);
+                this.handleInputSubmit(e);
+            }
         }
     }
 
@@ -57,10 +62,29 @@ class Input extends Component {
 
     }
 
+    handleCheck() {
+        // console.log('checking item '+this.props.type);
+
+        if (this.state.checked) {
+            this.setState({checked: false});
+            this.props.handleSubmit(this.state.value, false, this.props.index);
+        } else {
+            this.setState({checked: true});
+            this.props.handleSubmit(this.state.value, true, this.props.index);
+        }
+    }
+
     renderThing() {
 
         const editClassName = 'todoInput todoInput-'+this.props.type;
         const viewClassName = 'todoView todoView-'+this.props.type;
+        let checkClassName;
+
+        if (this.state.checked) {
+            checkClassName = 'check checked';
+        } else {
+            checkClassName = 'check unchecked';
+        }
 
         if ( this.state.editing ) {
             return (
@@ -77,7 +101,10 @@ class Input extends Component {
                 <div
                     className={viewClassName}
                 >
-
+                    <span className={checkClassName}
+                        onClick={this.handleCheck.bind(this)}
+                    >
+                    </span>
                     <span 
                         className='todoView-text'
                         onDoubleClick={this.swapState.bind(this)}
