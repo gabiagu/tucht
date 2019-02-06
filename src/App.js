@@ -96,7 +96,7 @@ class App extends Component {
 
                   {data.map((object, index) => (
 
-                    <div className={"row"} key={object.id.toString()+'-'+object.type}> 
+                    <div className={"item-row"} key={object.id.toString()+'-'+object.type}> 
                         {[ 
                           <Input 
                             type={object.type} 

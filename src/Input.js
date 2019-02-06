@@ -88,23 +88,30 @@ class Input extends Component {
 
         if ( this.state.editing ) {
             return (
-                <input
-                    className={editClassName}
-                    placeholder={this.props.placeholder}
-                    onChange={this.handleChange.bind(this) }
-                    onKeyDown={this.handleKeyDown.bind(this) }
-                    value={this.state.value}
-                />
+                <div className={editClassName}>
+                    <div className="check-wrapper">
+                        <span className="check disabled"></span>
+                    </div>
+                    <input
+                        className=""
+                        placeholder={this.props.placeholder}
+                        onChange={this.handleChange.bind(this) }
+                        onKeyDown={this.handleKeyDown.bind(this) }
+                        value={this.state.value}
+                    />
+                </div>
             )
-        } else {
+        } else { 
             return (
                 <div
                     className={viewClassName}
                 >
-                    <span className={checkClassName}
-                        onClick={this.handleCheck.bind(this)}
-                    >
-                    </span>
+                    <div className="check-wrapper">
+                        <span className={checkClassName}
+                            onClick={this.handleCheck.bind(this)}
+                        >
+                        </span>
+                    </div>
                     <span 
                         className='todoView-text'
                         onDoubleClick={this.swapState.bind(this)}
