@@ -77,13 +77,15 @@ class Input extends Component {
     renderThing() {
 
         const editClassName = 'todoInput todoInput-'+this.props.type;
-        const viewClassName = 'todoView todoView-'+this.props.type;
         let checkClassName;
+        let viewClassName;
 
         if (this.state.checked) {
             checkClassName = 'check checked';
+            viewClassName = 'todoView todoView-checked todoView-'+this.props.type;
         } else {
             checkClassName = 'check unchecked';
+            viewClassName = 'todoView todoView-'+this.props.type;
         }
 
         if ( this.state.editing ) {
