@@ -135,21 +135,21 @@ class Input extends Component {
                     className={viewClassName}
                 >
                     <div className="check-wrapper">
-                        <span className={checkClassName}
+                        <button className={checkClassName}
                             onClick={this.handleCheck.bind(this)}
                         >
-                        </span>
+                        </button>
                     </div>
                     <span 
                         className='todoView-text'  
                     >
                         {this.state.value}
                     </span>
-                    <span 
+                    <button 
                         className="edit-button"
                         onClick={this.swapState.bind(this)}
                     >edit
-                    </span>
+                    </button>
 
                 </div>
             )

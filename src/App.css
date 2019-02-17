@@ -47,12 +47,13 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
 
 
 .App-content {
-    width: 45rem;
     float: left;
     width: 70%;
+    min-height: 100vh;
     padding: 4rem 0;
     font-family: 'Noto Sans', sans-serif;
     background: #F5EEE3;
+    box-sizing: border-box;
 }
 
 .item-row {
@@ -147,7 +148,6 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
 .check.checked {
     background: none;
     border-color: transparent;
-    top: 1.25rem;
     text-align: center;
 }
 
