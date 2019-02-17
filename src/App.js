@@ -13,42 +13,42 @@ class App extends Component {
                 {
                     id: 1,
                     type: 'primary',
-                    placeholder: 'the most important thing',
+                    placeholder: '1. The most important thing today',
                     text: '',
                     checked: false,
                 },
                 {
                     id: 2,
                     type: 'secondary',
-                    placeholder: 'a very important thing',
+                    placeholder: '2. An important thing',
                     text: '',
                     checked: false,
                 },
                 {
                     id: 3,
                     type: 'secondary',
-                    placeholder: 'a very important thing',
+                    placeholder: '3. Another important thing',
                     text: '',
                     checked: false,
                 },
                 {
                     id: 4,
                     type: 'tertiary',
-                    placeholder: 'something small and easy',
+                    placeholder: '4. Something small and easy',
                     text: '',
                     checked: false,
                 },
                 {
                     id: 5,
                     type: 'tertiary',
-                    placeholder: 'something small and easy',
+                    placeholder: '5. Something else small and easy',
                     text: '',
                     checked: false,
                 },
                 {
                     id: 6,
                     type: 'tertiary',
-                    placeholder: 'something small and easy',
+                    placeholder: '6. Something else small and easy',
                     text: '',
                     checked: false,
                 },
@@ -72,6 +72,7 @@ class App extends Component {
         // console.log('submitted '+text+' '+checkedStatus+' '+index);
         let newList = [];
         newList = this.state.data;
+        console.log(newList);
         // update data
         newList[index].text = text;
         newList[index].checked = checkedStatus;
@@ -88,8 +89,18 @@ class App extends Component {
 
         return (
             <div className="App">
-                <div className="App-header">
-                    <h2>Tucht - 6 things to do today</h2>
+                <div className="App-info">
+                    <div className="App-info-content">
+                        <h2>Tucht</h2>
+                        <h3>(only) 6 things to do today</h3>
+                        <p>This is a variation on the basic todo list, combined with a prioritization system. Your time is limited and precious, so focus on what really matters.<br/>
+                        </p>
+                        <p>Decide what's the most important thing you should do today. If you only get one thing done today, that is it.</p>
+                        <p>Then add 2 more important things to do.
+                            </p>
+                        <p>Then add 3 small and simple things to do like <i>"answer one email"</i> or the like. This will give you the joy of getting more things done.
+                        </p>
+                    </div>
                 </div>
 
                 <div className="App-content">

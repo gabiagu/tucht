@@ -10,64 +10,82 @@ COLORS
 
 */
 
-.App {
-    text-align: center;
-}
-
 body {
-    background-color: #EBEBEB;
+background: rgb(242,109,73);
+background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 100%);
+    font-size: 16px;
+    font-size: 1rem;
+}
+.App-info p {
+    /*color: #fff;*/
+    line-height: 1.6;
 }
 
 
-.App-header {
+.App-info {
     height: auto;
-    color: white;
-    background: #D05353;
-    width: 40%;
+    color: #fff;
+    width: 30%;
     float: left;
     padding: 0;
     height: 100%;
     min-height: 100vh;
+    font-family: 'Roboto Slab', serif;
+    text-align: left;
 }
 
-.App-header h2 {
-    padding-top: 5vh;
-    margin: 0;
+.App-info-content {
+    padding: 3rem;
 }
+
+.App-info h2, h3 {
+    margin: 0 0 1rem 0;
+}
+.App-info h2 {
+    font-size: 4rem;
+}
+
 
 .App-content {
-    width: 59%;
+    width: 45rem;
     float: left;
-    padding-top: 5vh;
+    width: 70%;
+    padding: 4rem 0;
+    font-family: 'Noto Sans', sans-serif;
+    background: #F5EEE3;
 }
 
+.item-row {
+    position: relative;
+    padding-left: 3rem;
+}
 
 .todoInput,
 .todoView {
     margin: 0;
-    margin-bottom: 2vh;
-    font-size: 36px;
-    line-height: 40px;
-    width: 36vw;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    width: 35rem;
     position: relative;
-    padding-left: 4vw;
+    padding-left: 4rem;
     display: flex;
     flex-direction: row;
-    border-radius: 8px;
+    border-radius: .5rem;
     overflow: hidden;
 }
 .todoView-text,
 .todoInput input {
     order: 2;
     flex-grow: 3;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1rem;
 }
 
 .todoView-text {
     text-align: left;
-    font-family: Georgia, serif;
-    padding: 3vh 1.5vw;
-    font-size: 4vh;
-    line-height: 6vh;
     background: #fff;
 }
 
@@ -75,21 +93,20 @@ body {
     border: none;
     outline: none;
     background:#fff;
-    padding: 3vh 1.5vw;
-    font-size: 4vh;
-    line-height: 6vh;
+    height: 2rem;
 }
 
 .todoView-checked {
-    opacity: .5;
+    opacity: .8;
     text-decoration: line-through;
+    color: #555;
 }
 
 ::placeholder {
-    font-size: 3.5vh;
-    line-height: 7vh;
+    font-size: 1rem;
+    line-height: 3rem;
     color: #ccc;
-    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .todoInput input:focus {
@@ -98,27 +115,26 @@ body {
 }
 
 .check-wrapper {
-    width: 4vw;
+    width: 4rem;
     height: 100%;
     position: absolute;
     top: 0; 
     left: 0;
-    background: #5C80BC;
+    background: #72E081;
 }
 
 .check {
     display: block;
     position: absolute;
-    top: .9vw;
-    left: .9vw;
-    width: 2.2vw;
-    height: 2.2vw;
-    border: 1px solid #555;
+    top: .75rem;
+    left: .75rem;
+    width: 2.5rem;
+    height: 2.5rem;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background: #fff;
-    border-radius: .5vw;
+    border-radius: 50%;
 }
 
 .todoInput .check-wrapper {
@@ -126,31 +142,42 @@ body {
     background: #ddd;
 }
 .todoInput .check-wrapper .check {
-    border: 2px solid #ccc;
+    /*border: 2px solid #ccc;*/
 }
 .check.checked {
     background: none;
     border-color: transparent;
-    top: .7vw;
+    top: 1.25rem;
+    text-align: center;
 }
 
 .check.checked:before {
    content: "\2714";
    color: #fff;
+   font-size: 2rem;
+
 }
 
-/*.todoView-secondary .check {
-    width: 24px;
-    height: 24px;
-}*/
 
-
-/*.todoView-text {
+.edit-button {
+    background: #eee;
     display: inline-block;
-    margin-left: 50px;
-}*/
+    position: absolute;
+    font-size: 1rem;
+    padding: .3rem .75rem;
+    border-radius: .2rem;
+    cursor: pointer;
+    color: #444;
+    right: .75rem;
+    top: 1rem;
+    opacity: .7;
+}
+.edit-button:hover {
+    opacity: 1;
+    background: #6CBEED;
+    color: #fff;
+}
 
-.item-row {
-    position: relative;
-    padding-left: 2.4em;
+.todoView-checked .edit-button {
+    display: none;
 }

@@ -14,7 +14,22 @@ class Input extends Component {
             value: '',
             checked: false,
         }
+
+        this.textInput = null;
+
+        this.setTextInputRef = element => {
+          this.textInput = element;
+        };
+
+        this.focusTextInput = () => {
+          // Focus the text input using the raw DOM API
+          console.log(this.state.editing)
+          console.log(this.textInput);
+          if (this.textInput) this.textInput.focus();
+        };
     }
+
+
 
     handleInputSubmit(e) {
         e.preventDefault();
@@ -31,6 +46,13 @@ class Input extends Component {
         if (e.which === ESCAPE_KEY) {
             if (( this.props.text === '' )) {
                 this.setState({value: ''});
+                //console.log('empty field at esc press');
+            } else if ( ( this.props.text === '' ) && this.state.value === '') {
+                //console.log('empty text & empty value');
+                this.setState({editing: true});
+            } else if ( this.state.value === '') {
+                //console.log('empty text');
+                this.setState({editing: true});
             } else {
                 this.setState({editing: false});
             }
@@ -58,6 +80,9 @@ class Input extends Component {
             this.setState({editing: false});
         } else {
             this.setState({editing: true});
+            console.log(this.state.editing);
+            console.log('should focus on input');
+            this.focusTextInput();
         }
 
     }
@@ -100,6 +125,7 @@ class Input extends Component {
                         onChange={this.handleChange.bind(this) }
                         onKeyDown={this.handleKeyDown.bind(this) }
                         value={this.state.value}
+                        ref={this.setTextInputRef}
                     />
                 </div>
             )
@@ -115,16 +141,28 @@ class Input extends Component {
                         </span>
                     </div>
                     <span 
-                        className='todoView-text'
-                        onDoubleClick={this.swapState.bind(this)}
+                        className='todoView-text'  
                     >
                         {this.state.value}
+                    </span>
+                    <span 
+                        className="edit-button"
+                        onClick={this.swapState.bind(this)}
+                    >edit
                     </span>
 
                 </div>
             )
         }
 
+    }
+
+    componentDidUpdate(){
+        if (this.state.editing) {
+            this.focusTextInput();
+        } else {
+            // do nothing;
+        }
     }
 
     
