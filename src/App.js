@@ -72,7 +72,7 @@ class App extends Component {
         // console.log('submitted '+text+' '+checkedStatus+' '+index);
         let newList = [];
         newList = this.state.data;
-        console.log(newList);
+        // console.log(newList);
         // update data
         newList[index].text = text;
         newList[index].checked = checkedStatus;

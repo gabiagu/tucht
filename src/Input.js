@@ -23,8 +23,8 @@ class Input extends Component {
 
         this.focusTextInput = () => {
           // Focus the text input using the raw DOM API
-          console.log(this.state.editing)
-          console.log(this.textInput);
+          //console.log(this.state.editing)
+          //console.log(this.textInput);
           if (this.textInput) this.textInput.focus();
         };
     }
@@ -60,7 +60,7 @@ class Input extends Component {
             if (this.state.value === '') {
                 return false;
             } else {
-                console.log('ENTER pressed '+e.target.value);
+                // console.log('ENTER pressed '+e.target.value);
                 this.handleInputSubmit(e);
             }
         }
@@ -80,8 +80,8 @@ class Input extends Component {
             this.setState({editing: false});
         } else {
             this.setState({editing: true});
-            console.log(this.state.editing);
-            console.log('should focus on input');
+            // console.log(this.state.editing);
+            // console.log('should focus on input');
             this.focusTextInput();
         }
 
@@ -158,7 +158,7 @@ class Input extends Component {
     }
 
     componentDidUpdate(){
-        if (this.state.editing) {
+        if (this.state.editing && (this.state.value !== '')) {
             this.focusTextInput();
         } else {
             // do nothing;
