@@ -26,7 +26,6 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
     color: #fff;
     padding: 0;
     height: 100%;
-    min-height: 100vh;
     font-family: 'Roboto Slab', serif;
     text-align: left;
 }
@@ -51,7 +50,7 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
 
 .item-row {
     position: relative;
-    padding-left: 1rem;
+    padding-left: 5vw;
 }
 
 .todoInput,
@@ -60,9 +59,9 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
     margin-bottom: 1rem;
     font-size: 1.5rem;
     line-height: 1.5rem;
-    width: 77%;
-    position: relative;
+    width: calc(87vw - 4rem);
     padding-left: 4rem;
+    position: relative;
     display: flex;
     flex-direction: row;
     border-radius: .5rem;
@@ -72,7 +71,7 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
 .todoInput input {
     order: 2;
     flex-grow: 3;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2rem;
     font-family: 'Montserrat', sans-serif;
     padding: 1rem;
@@ -97,7 +96,7 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
 }
 
 ::placeholder {
-    font-size: 1rem;
+    font-size: .75rem;
     line-height: 3rem;
     color: #ccc;
     font-family: 'Montserrat', sans-serif;
@@ -148,7 +147,6 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
    content: "\2714";
    color: #fff;
    font-size: 2rem;
-
 }
 
 .edit-button {
@@ -181,13 +179,14 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
     .App-info {
         width: 30%;
         float: left;
+        min-height: 100vh;
     }
 
     .App-content {
         float: left;
         width: 70%;
         min-height: 100vh;
-        padding: 2rem 0;
+        padding: 4rem 0;
     }
 
     .item-row {
@@ -196,7 +195,27 @@ background: linear-gradient(-160deg, rgba(242,109,73,1) 35%, rgba(242,73,73,1) 1
     }
     .todoInput,
     .todoView {
-        width: 35rem;
+        width: calc(70% - 4rem);
+        padding-left: 4rem;
     }
-
+    .check-wrapper {
+        width: 4rem;
+    }
+    .check {
+        top: .75rem;
+        left: .75rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .check.checked:before {
+       font-size: 2rem;
+    }
+    .todoView-text,
+    .todoInput input {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    ::placeholder {
+        font-size: 1rem;
+    }
 }
